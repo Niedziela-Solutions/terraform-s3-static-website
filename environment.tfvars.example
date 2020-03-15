@@ -1,0 +1,4 @@
+region = "us-east-2"
+profile = "default"
+s3_bucket = "test-website"
+s3_origin_id = "your-s3-origin"
