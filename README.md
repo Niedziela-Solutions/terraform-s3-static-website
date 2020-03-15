@@ -1,6 +1,6 @@
 # Terraform S3 Static Site Setup
 
-Terraform script to configure S3 for a static website fronted by Cloudfront and restricted access to Cloudfront. Doesn't setup domains/ACM yet.
+Terraform script to configure S3 for a static website fronted by Cloudfront and restricted access to Cloudfront via referer header. Doesn't setup domains/ACM yet.
 
 Mostly just playing around with Terraform based on the documentation.
 
@@ -22,5 +22,5 @@ Mostly just playing around with Terraform based on the documentation.
 region = AWS_REGION
 profile = AWS_PROFILE
 s3_bucket = BUCKET_NAME_YOU_WANT
-s3_origin_id = BUCKET_ORIGIN_ID
+s3_origin_id = BUCKET_ORIGIN_ID (also used for referer header)
 ```
