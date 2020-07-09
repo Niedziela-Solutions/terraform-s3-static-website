@@ -2,3 +2,7 @@ region = "us-east-2"
 profile = "default"
 s3_bucket = "test-website"
 s3_origin_id = "your-s3-origin"
+aliases = [
+  "terraform-test.example.com"
+]
+acm_certificate_arn = "arn:aws:acm:us-east-1:STUFF"

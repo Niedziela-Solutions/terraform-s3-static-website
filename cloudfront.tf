@@ -5,6 +5,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   is_ipv6_enabled = true
   comment = "Made by Terraform"
   default_root_object = "index.html"
+  aliases = var.aliases
 
   origin {
     domain_name = aws_s3_bucket.static.website_endpoint
@@ -39,7 +40,9 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn = var.acm_certificate_arn
+    minimum_protocol_version = "TLSv1.2_2018"
+    ssl_support_method = "sni-only"
   }
 
   restrictions {

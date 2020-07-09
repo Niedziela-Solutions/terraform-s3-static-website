@@ -7,4 +7,11 @@ variable "profile" {
 }
 
 variable "s3_bucket" {}
+
 variable "s3_origin_id" {}
+
+variable "aliases" {
+  default = []
+}
+
+variable "acm_certificate_arn" {}
