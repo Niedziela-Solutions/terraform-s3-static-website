@@ -2,8 +2,6 @@
 
 Terraform script to configure S3 and Cloudfront for static website hosting. Restricted access to Cloudfront via referer header, custom domain, and so on.
 
-Mostly just playing around with Terraform based on the documentation.
-
 ## Requirements
 
 - [Terraform](https://learn.hashicorp.com/terraform/getting-started/install)
@@ -29,4 +27,5 @@ s3_bucket = BUCKET_NAME_YOU_WANT
 s3_origin_id = BUCKET_ORIGIN_ID (also used for referer header)
 aliases = LIST_OF_DOMAINS
 acm_certificate_arn = ACM CERTIFICATE ARN
+viewer_protocol_policy = VIEWER_PROTOCOL_POLICY
 ```

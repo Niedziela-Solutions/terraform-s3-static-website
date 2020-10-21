@@ -15,3 +15,7 @@ variable "aliases" {
 }
 
 variable "acm_certificate_arn" {}
+
+variable "viewer_protocol_policy" {
+  default = "allow-all"
+}

@@ -3,7 +3,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   price_class = "PriceClass_100"
   retain_on_delete = true
   is_ipv6_enabled = true
-  comment = "Made by Terraform"
+  comment = "Managed by Terraform"
   default_root_object = "index.html"
   aliases = var.aliases
 
@@ -28,7 +28,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
     target_origin_id = var.s3_origin_id
-    viewer_protocol_policy = "allow-all"
+    viewer_protocol_policy = var.viewer_protocol_policy
+    compress = true
 
     forwarded_values {
       query_string = false
