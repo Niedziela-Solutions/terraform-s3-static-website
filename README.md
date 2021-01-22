@@ -2,6 +2,8 @@
 
 Terraform script to configure S3 and Cloudfront for static website hosting. Restricted access to Cloudfront via referer header, custom domain, 404 page routing, and so on.
 
+[Niedziela Solutions, LLC's website was made by and is managed using this tool!](https://www.niedzielasolutions.com)
+
 ## Requirements
 
 - [Terraform](https://learn.hashicorp.com/terraform/getting-started/install)
