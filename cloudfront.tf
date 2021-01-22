@@ -7,6 +7,13 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   default_root_object = "index.html"
   aliases = var.aliases
 
+  custom_error_response {
+    error_caching_min_ttl = 10
+    error_code = 404
+    response_code = 404
+    response_page_path = "/404.html"
+  }
+
   origin {
     domain_name = aws_s3_bucket.static.website_endpoint
     origin_id   = var.s3_origin_id

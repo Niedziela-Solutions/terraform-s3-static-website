@@ -1,6 +1,6 @@
 # Terraform S3 Static Site Setup
 
-Terraform script to configure S3 and Cloudfront for static website hosting. Restricted access to Cloudfront via referer header, custom domain, and so on.
+Terraform script to configure S3 and Cloudfront for static website hosting. Restricted access to Cloudfront via referer header, custom domain, 404 page routing, and so on.
 
 ## Requirements
 
