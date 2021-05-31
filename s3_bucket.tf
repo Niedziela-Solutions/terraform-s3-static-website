@@ -6,6 +6,14 @@ resource "aws_s3_bucket" "static" {
     index_document = "index.html"
   }
 
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
+
   policy = <<POLICY
 {
     "Version": "2012-10-17",
