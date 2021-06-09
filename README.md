@@ -8,11 +8,12 @@ Terraform script to configure S3 and Cloudfront for static website hosting. Rest
 
 - [Terraform](https://learn.hashicorp.com/terraform/getting-started/install)
 - AWS Account
+- S3 Bucket with server-side encryption enabled. This is to [store the Terraform state remotely](https://www.terraform.io/docs/language/state/remote.html) in [an S3 Bucket](https://www.terraform.io/docs/language/settings/backends/s3.html).
 - A website you want to setup infrastructure for!
 
 ## Usage
 
-1. `terraform init`
+1. `terraform init -backend-config="profile=YOUR_AWS_PROFILE"`. It will prompt for the S3 Bucket you want to use to store your Terraform state and the AWS region to use.
 1. `cp environment.tfvars.example environment.tfvars` and change as needed (see _Settings_ section)
 1. Verify: `terraform plan -var-file=environment.tfvars`
 1. Invoke: `terraform apply -var-file=environment.tfvars`
