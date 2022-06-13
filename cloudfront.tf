@@ -15,7 +15,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   origin {
-    domain_name = aws_s3_bucket.static.website_endpoint
+    domain_name = aws_s3_bucket_website_configuration.static.website_endpoint
     origin_id   = var.s3_origin_id
 
     custom_header {
@@ -49,7 +49,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   viewer_certificate {
     acm_certificate_arn = var.acm_certificate_arn
-    minimum_protocol_version = "TLSv1.2_2019"
+    minimum_protocol_version = "TLSv1.2_2021"
     ssl_support_method = "sni-only"
   }
 
