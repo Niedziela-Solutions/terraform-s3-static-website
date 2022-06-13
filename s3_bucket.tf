@@ -25,7 +25,6 @@ resource "aws_s3_bucket_acl" "static" {
   acl    = "private"
 }
 
-
 resource "aws_s3_bucket_policy" "static" {
   bucket = aws_s3_bucket.static.id
   policy = <<POLICY
