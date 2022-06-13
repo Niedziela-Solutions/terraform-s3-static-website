@@ -49,3 +49,10 @@ resource "aws_s3_bucket_policy" "static" {
 }
 POLICY
 }
+
+resource "aws_s3_bucket_public_access_block" "static" {
+  bucket = aws_s3_bucket.static.id
+
+  block_public_acls   = true
+  ignore_public_acls  = true
+}
