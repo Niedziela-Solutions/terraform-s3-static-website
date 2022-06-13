@@ -1,19 +1,33 @@
 resource "aws_s3_bucket" "static" {
   bucket = var.s3_bucket
-  acl = "private"
+}
 
-  website {
-    index_document = "index.html"
-  }
+resource "aws_s3_bucket_server_side_encryption_configuration" "static" {
+  bucket = aws_s3_bucket.static.bucket
 
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
     }
   }
+}
 
+resource "aws_s3_bucket_website_configuration" "static" {
+  bucket = aws_s3_bucket.static.bucket
+
+  index_document {
+    suffix = "index.html"
+  }
+}
+
+resource "aws_s3_bucket_acl" "static" {
+  bucket = aws_s3_bucket.static.id
+  acl    = "private"
+}
+
+
+resource "aws_s3_bucket_policy" "static" {
+  bucket = aws_s3_bucket.static.id
   policy = <<POLICY
 {
     "Version": "2012-10-17",
