@@ -6,6 +6,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "static" {
   bucket = aws_s3_bucket.static.bucket
 
   rule {
+    bucket_key_enabled = true
+
     apply_server_side_encryption_by_default {
       sse_algorithm = "AES256"
     }
@@ -18,11 +20,6 @@ resource "aws_s3_bucket_website_configuration" "static" {
   index_document {
     suffix = "index.html"
   }
-}
-
-resource "aws_s3_bucket_acl" "static" {
-  bucket = aws_s3_bucket.static.id
-  acl    = "private"
 }
 
 resource "aws_s3_bucket_policy" "static" {
